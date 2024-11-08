@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block body %}
+
+<div class="admin-dashboard">
+    <h1 class="minecraft-title">Admin Dashboard</h1>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <img src="{{ asset('images/minecraft/diamond.png') }}" alt="Products">
+            <h2>{{ total_products }}</h2>
+            <p>Total Products</p>
+            <a href="{{ path('app_admin_products') }}" class="btn-minecraft">Manage Products</a>
+        </div>
+        
+        <div class="stat-card">
+            <img src="{{ asset('images/minecraft/player.png') }}" alt="Users">
+            <h2>{{ total_users }}</h2>
+            <p>Registered Users</p>
+            <a href="{{ path('app_admin_users') }}" class="btn-minecraft">View Users</a>
+        </div>
+        
+        <div class="stat-card">
+            <img src="{{ asset('images/minecraft/chest.png') }}" alt="Orders">
+            <h2>{{ total_orders }}</h2>
+            <p>Total Orders</p>
+            <a href="{{ path('app_admin_orders') }}" class="btn-minecraft">View Orders</a>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h2>Produits par catégorie</h2>
+            <ul>
+                {% for category in productsByCategory %}
+                    <li>{{ category.category }}: {{ category.productCount }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="stat-card">
+            <h2>5 Dernières commandes</h2>
+            <ul>
+                {% for order in recentOrders %}
+                    <li>Commande #{{ order.id }} - {{ order.createdAt|date('Y-m-d') }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="stat-card">
+            <h2>Ratio de disponibilité des produits</h2>
+            <ul>
+                {% for status, ratio in productStatus %}
+                    <li>{{ status }}: {{ ratio }}%</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="stat-card">
+            <h2>Ventes mensuelles (derniers 12 mois)</h2>
+            <ul>
+                {% for month, totalSales in monthlySales %}
+                    <li>Mois {{ month }}: {{ totalSales }} diamonds</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

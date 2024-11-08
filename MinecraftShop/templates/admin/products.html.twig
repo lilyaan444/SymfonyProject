@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Products{% endblock %}
+
+{% block body %}
+<div class="admin-products">
+    <h1 class="minecraft-title">Products Management</h1>
+    
+    <div class="actions">
+        <a href="{{ path('app_admin_product_new') }}" class="btn-minecraft">Add New Product</a>
+    </div>
+
+    <table class="table-minecraft">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>
+                        <img src="{{ asset('images/minecraft/' ~ product.minecraftImage) }}" 
+                             alt="{{ product.name }}" 
+                             class="product-thumbnail">
+                    </td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }} diamonds</td>
+                    <td>{{ product.stock }}</td>
+                    <td>
+                        <a href="{{ path('app_admin_product_edit', {'id': product.id}) }}" 
+                           class="btn-minecraft">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

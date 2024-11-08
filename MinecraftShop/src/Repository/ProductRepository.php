@@ -63,4 +63,33 @@ class ProductRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
+    public function getProductStatusRatio(): array
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select('p.status, COUNT(p.id) as count')
+            ->groupBy('p.status');
+
+        $result = $qb->getQuery()->getResult();
+
+        $total = array_sum(array_column($result, 'count'));
+        $ratio = [];
+
+        foreach ($result as $item) {
+            $ratio[$item['status']] = round(($item['count'] / $total) * 100, 2);
+        }
+
+        return $ratio;
+    }
+
+public function countProductsByCategory(): array
+{
+    return $this->createQueryBuilder('p')
+        ->select('c.name AS category, COUNT(p.id) AS productCount')
+        ->join('p.category', 'c') // Assurez-vous que 'p.category' est correct
+        ->groupBy('c.id')
+        ->getQuery()
+        ->getResult();
+}
+
 }
