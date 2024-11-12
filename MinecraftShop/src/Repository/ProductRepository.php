@@ -92,4 +92,15 @@ public function countProductsByCategory(): array
         ->getResult();
 }
 
+public function searchByName(string $query): array
+{
+    return $this->createQueryBuilder('p')
+        ->where('p.name LIKE :query')
+        ->setParameter('query', '%'.$query.'%')
+        ->getQuery()
+        ->getResult()
+    ;
+}
+
+
 }
