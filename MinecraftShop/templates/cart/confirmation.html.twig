@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Order Confirmation{% endblock %}
+{% block title %}{{ 'order_confirmation'|trans}}{% endblock %}{}
 
 {% block body %}
 <div class="order-confirmation">
@@ -8,7 +8,7 @@
     
     <div class="confirmation-message">
         <img src="{{ asset('images/minecraft/diamond.png') }}" alt="Success" class="confirmation-icon">
-        <p>Thank you for your purchase! Your order reference is: {{ order.reference }}</p>
+        <p>    {{ 'thanks_for'|trans }}{{ order.reference }}</p>
     </div>
 
     <div class="order-details">
@@ -32,15 +32,15 @@
                             {{ item.product.name }}
                         </td>
                         <td>{{ item.quantity }}</td>
-                        <td>{{ item.productPrice }} diamonds</td>
-                        <td>{{ item.productPrice * item.quantity }} diamonds</td>
+                        <td>{{ item.productPrice }} diamonds 💎</td>
+                        <td>{{ item.productPrice * item.quantity }} diamonds 💎</td>
                     </tr>
                 {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3"><strong>Total</strong></td>
-                    <td><strong>{{ order.getTotal }} diamonds</strong></td>
+                    <td><strong>{{ order.getTotal }} diamonds 💎</strong></td>
                 </tr>
             </tfoot>
         </table>
