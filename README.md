@@ -46,7 +46,7 @@ Ce projet est une boutique en ligne inspirée de l'univers de Minecraft, réalis
 ### Installation avec IDX
 
 1. **Forker le projet**  
-   Rendez-vous sur le dépôt GitHub [Minecraft-Shop-Test](https://github.com/lilyaan444/Minecraft-Shop-Test.git) et forkez-le sur votre compte GitHub.
+   Forkez-le dépot actuel sur votre compte GitHub.
 
 2. **Importer le projet sur IDX**  
    Connectez-vous à IDX et importez votre fork du projet depuis votre dépôt GitHub.
@@ -57,8 +57,6 @@ Ce projet est une boutique en ligne inspirée de l'univers de Minecraft, réalis
 4. **Installer les dépendances**  
    Dans le terminal de votre projet :
    - Lancez la commande : `composer install` pour installer les dépendances PHP.  
-   - Ensuite, exécutez : `npm install` pour installer les dépendances Node.js.  
-   - Finalement, lancez : `npm run dev` pour compiler les fichiers frontend.
 
 5. **Configurer la base de données**  
    - Connectez-vous à MySQL en utilisant : `mysql -u root`.  
