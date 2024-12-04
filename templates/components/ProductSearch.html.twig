@@ -22,7 +22,6 @@
                             <h2>{{ product.name }}</h2>
                             <p class="minecraft-tooltip">
                                 {{ product.price }} diamonds 💎
-                                <span class="tooltiptext">{{ 'in_game_currency'|trans }}</span>
                             </p>
                             <p>{{ 'stock'|trans }}: {{ product.stock }}</p>
                             <form action="{{ path('app_cart_add', {'id': product.id}) }}" method="post">
