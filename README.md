@@ -43,28 +43,40 @@ Ce projet est une boutique en ligne inspirée de l'univers de Minecraft, réalis
 
 ## 🚀 Installation
 
-
-
-
 ### Installation avec IDX
 
-1. Fork le projet sur votre compte GitHub
+1. **Forker le projet**  
+   Rendez-vous sur le dépôt GitHub [Minecraft-Shop-Test](https://github.com/lilyaan444/Minecraft-Shop-Test.git) et forkez-le sur votre compte GitHub.
 
+2. **Importer le projet sur IDX**  
+   Connectez-vous à IDX et importez votre fork du projet depuis votre dépôt GitHub.
 
-2. Importer le projet depuis votre GitHub sur IDX
+3. **Démarrer le projet**  
+   Une fois le projet importé, il devrait être automatiquement lancé sur IDX. Accédez à l'onglet "Terminal", cliquez sur `start`, puis ouvrez le lien localhost pour visualiser l'application.
 
+4. **Installer les dépendances**  
+   Dans le terminal de votre projet :
+   - Lancez la commande : `composer install` pour installer les dépendances PHP.  
+   - Ensuite, exécutez : `npm install` pour installer les dépendances Node.js.  
+   - Finalement, lancez : `npm run dev` pour compiler les fichiers frontend.
 
-3. Le projet est déjà lancé il suffit d'aller dans l'onglet du terminal avec start puis cliquer sur le lien localhost
+5. **Configurer la base de données**  
+   - Connectez-vous à MySQL en utilisant : `mysql -u root`.  
+   - Créez la base de données :  
+     ```sql
+     CREATE DATABASE MC;
+     ```
+   - Exécutez les commandes suivantes pour configurer les tables et charger les données de test :  
+     ```bash
+     php bin/console doctrine:schema:update --force
+     php bin/console doctrine:fixtures:load
+     ```
 
-
-4. Lancer la commande composer i pour installer les dépendances du projet.
-
-
-5. Pour accéder à la base de données mysql -u root
-
-
-6. Dans un fichier à la racine .env.local mettre cette variable d'environnement DATABASE_URL="mysql://root:@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
-
+6. **Configurer les variables d'environnement**  
+   Créez un fichier `.env.local` à la racine du projet et ajoutez la ligne suivante pour configurer l'accès à la base de données :  
+   ```
+   DATABASE_URL="mysql://root:@127.0.0.1:3306/MC?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+   ```
 ---
 
 ## 📖 Utilisation
