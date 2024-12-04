@@ -50,15 +50,19 @@ Ce projet est une boutique en ligne inspirée de l'univers de Minecraft, réalis
 
 2. **Importer le projet sur IDX**  
    Connectez-vous à IDX et importez votre fork du projet depuis votre dépôt GitHub.
+   
+4. **Changer de branch**  
+   Dans le terminal de votre projet :
+   - git checkout -b MinecraftShop origin/MinecraftShop
 
-3. **Démarrer le projet**  
-   Une fois le projet importé, il devrait être automatiquement lancé sur IDX. Accédez à l'onglet "Terminal", cliquez sur `start`, puis ouvrez le lien localhost pour visualiser l'application.
+5. **Démarrer le projet**  
+   Une fois le projet importé et le checkout effectuer, il devrait être automatiquement lancé sur IDX. Accédez à l'onglet "Terminal", cliquez sur `start`, puis ouvrez le lien localhost pour visualiser l'application.
 
-4. **Installer les dépendances**  
+6. **Installer les dépendances**  
    Dans le terminal de votre projet :
    - Lancez la commande : `composer install` pour installer les dépendances PHP.  
 
-5. **Configurer la base de données**  
+7. **Configurer la base de données**  
    - Connectez-vous à MySQL en utilisant : `mysql -u root`.  
    - Créez la base de données :  
      ```sql
@@ -70,7 +74,7 @@ Ce projet est une boutique en ligne inspirée de l'univers de Minecraft, réalis
      php bin/console doctrine:fixtures:load
      ```
 
-6. **Configurer les variables d'environnement**  
+8. **Configurer les variables d'environnement**  
    Créez un fichier `.env.local` à la racine du projet et ajoutez la ligne suivante pour configurer l'accès à la base de données :  
    ```
    DATABASE_URL="mysql://root:@127.0.0.1:3306/MC?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
