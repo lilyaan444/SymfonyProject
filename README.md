@@ -60,7 +60,8 @@ Ce projet est une boutique en ligne inspirée de l'univers de Minecraft, réalis
 
 6. **Installer les dépendances**  
    Dans le terminal de votre projet :
-   - Lancez la commande : `composer install` pour installer les dépendances PHP.  
+   - Lancez la commande : `composer install` pour installer les dépendances PHP.
+   - Puis la commande : `npm install` et `encore dev`
 
 7. **Configurer la base de données**  
    - Connectez-vous à MySQL en utilisant : `mysql -u root`.  
